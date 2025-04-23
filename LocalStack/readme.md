@@ -8,3 +8,5 @@ understand all the dependencies of the AWS it is just for simple
 checking of your code (lambda).
 
 https://app.localstack.cloud/inst/default/resources/lambda/functions
+
+repo: https://github.com/localstack/localstack
