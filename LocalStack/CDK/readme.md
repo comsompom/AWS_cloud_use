@@ -22,6 +22,11 @@ cdklocal deploy
 > Do you wish to deploy these changes (y/n)? y
 ```
 
+# destroy the structure
+```bash
+cdklocal destroy
+```
+
 All structure are build inside the folder with the python file:
 
 ""stack/aws/aws/aws_stack.py"
