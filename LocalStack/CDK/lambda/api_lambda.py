@@ -21,10 +21,8 @@ def handler(event, context):
     user_msg = body.get("message", "NOT PRESENT")
     user_image = body.get("image", "")
     image_name = "no_file.txt"
-    image_content = "empty content"
     if user_image:
         image_name = user_image.get("file_name", "no_file.txt")
-        image_content = user_image.get("content", "empty content")
 
     file_name = f"{user_id}_{image_name}"
 
