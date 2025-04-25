@@ -35,3 +35,6 @@ All structure are build inside the folder with the python file:
 The lambda for structure should be inside the folder: 
 
 "stack/aws/lambda"
+
+## The Architecture of this stack
+![AWS Stack](architecture.png "AWS CDK Stack Architecture")
