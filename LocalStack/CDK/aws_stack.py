@@ -4,7 +4,7 @@ from aws_cdk import (
     Stack,
     aws_sqs as sqs,
     aws_lambda as _lambda,
-    aws_lambda_event_sources as lambda_events,
+    aws_lambda_event_sources as lambda_event_source,
     aws_s3 as s3,
     aws_dynamodb as _dynamo,
 )
@@ -81,7 +81,6 @@ class AwsStack(Stack):
         api_lambda_url = api_lambda.add_function_url(
             auth_type = _lambda.FunctionUrlAuthType.NONE,)
 
-        # api_lambda.add_environment("TABLE_NAME", api_table.table_name)
         api_table.grant_write_data(api_lambda)
 
         # Create SQS Lambda
@@ -95,12 +94,13 @@ class AwsStack(Stack):
                                       )
         sqs_lambda_url = sqs_lambda.add_function_url(
             auth_type=_lambda.FunctionUrlAuthType.NONE, )
-        # sqs_lambda.add_environment("TABLE_NAME", api_table.table_name)
         api_table.grant_write_data(sqs_lambda)
 
         # This binds the lambda to the SQS Queue
-        invoke_event_source = lambda_events.SqsEventSource(queue)
-        sqs_lambda.add_event_source(invoke_event_source)
+        sqs_event_source = lambda_event_source.SqsEventSource(queue)
+
+        # Add SQS event source to the Lambda function
+        sqs_lambda.add_event_source(sqs_event_source)
 
         CfnOutput(self, "API_Lambda_URL", value=api_lambda_url.url)
         CfnOutput(self, "SQS_Lambda_URL", value=sqs_lambda_url.url)
