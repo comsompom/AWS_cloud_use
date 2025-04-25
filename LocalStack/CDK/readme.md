@@ -37,4 +37,4 @@ The lambda for structure should be inside the folder:
 "stack/aws/lambda"
 
 ## The Architecture of this stack
-![AWS Stack](architecture.png "AWS CDK Stack Architecture")
+![AWS Stack](architecture.jpg "AWS CDK Stack Architecture")
