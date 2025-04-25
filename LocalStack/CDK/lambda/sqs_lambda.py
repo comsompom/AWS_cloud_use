@@ -1,4 +1,5 @@
 import os
+import json
 import boto3
 
 
@@ -6,22 +7,9 @@ dynamodb = boto3.resource('dynamodb')
 TABLE_NAME = os.environ['TABLE_NAME']
 
 
-def process_message(message):
-    try:
-        print(f"Processed message {message['body']}")
-        """
-        Processed message {"id": "23920183", 
-        "message": "Very Important Message New", 
-        "image": "{\"file_name\": \"image.png\", \"content\": \"usefull_image_content\"}"}
-        """
-    except Exception as err:
-        print("An error occurred")
-        raise err
-
-
 def handler(event, context):
     for message in event['Records']:
-        body = message.get('body', dict())
+        body = json.loads(message.get('body', '{}'))
         user_id = body.get('id', "NO_ID")
         user_msg = body.get('message', "NO MESSAGE RECEIVED")
         user_img = json.loads(body.get('image', '{}'))
