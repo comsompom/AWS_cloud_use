@@ -14,6 +14,7 @@ cdklocal init init app --language python
 ### bootstrap localstack environment
 ```bash
 cdklocal synth
+cdklocal bootstrap
 ```
 
 # deploy the sample app
