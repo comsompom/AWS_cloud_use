@@ -1,4 +1,4 @@
-import { Stack, StackProps, CfnOutput, Aws } from 'aws-cdk-lib';
+import { Stack, StackProps, CfnOutput, Duration, Aws } from 'aws-cdk-lib';
 import {
     aws_iam as iam,
     aws_s3 as s3,
@@ -16,6 +16,11 @@ export class JsStackStack extends Stack {
           bucketName: 'lambda-sample-s3',
           versioned: true,
           websiteRedirect: { hostName: 'aws.amazon.com' }
+      });
+
+      const queue = new sqs.Queue(this, 'CdkTsQueue', {
+          visibilityTimeout: Duration.seconds(300),
+          queueName: 'products',
       });
 
 
@@ -41,6 +46,10 @@ export class JsStackStack extends Stack {
       // Define a CloudFormation output for your URL
       new CfnOutput(this, "API_lambda_URL", {
           value: api_lambda_url.url,
-      })
+      });
+      new CfnOutput(this, 'QueueUrl', { value: queue.queueUrl, });
+      new CfnOutput(this, 'BucketName', { value: bucket.bucketWebsiteUrl, });
   }
 }
+
+//https://medium.com/@ibrahim.ahdadou/using-cdk-with-typescript-and-localstack-to-create-aws-services-locally-1d675ba4bcaa
