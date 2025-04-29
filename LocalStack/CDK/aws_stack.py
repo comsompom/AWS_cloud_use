@@ -1,3 +1,11 @@
+# pylint: disable=E0401
+# pylint: disable=C0115
+# pylint: disable=R1735
+# pylint: disable=W0612
+# pylint: disable=R0903
+"""
+AWS CDK script to deploy the structure to the cloud
+"""
 from aws_cdk import (
     Duration,
     CfnOutput,
