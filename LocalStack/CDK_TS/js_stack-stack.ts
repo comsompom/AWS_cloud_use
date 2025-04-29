@@ -1,4 +1,4 @@
-import { Stack, StackProps, CfnOutput, Duration, Aws } from 'aws-cdk-lib';
+import { Stack, StackProps, CfnOutput, Duration } from 'aws-cdk-lib';
 import {
     aws_iam as iam,
     aws_s3 as s3,
