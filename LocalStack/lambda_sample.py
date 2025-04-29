@@ -1,4 +1,10 @@
-# pylint: disable=E0001
+# pylint: disable=C0303
+# pylint: disable=C0114
+# pylint: disable=E0401
+# pylint: disable=C0103
+# pylint: disable=W0613
+# pylint: disable=W0612
+# pylint: disable=R0801
 import boto3 
 
 
