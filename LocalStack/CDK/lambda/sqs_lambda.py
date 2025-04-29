@@ -1,3 +1,8 @@
+# pylint: disable=C0303
+# pylint: disable=C0114
+# pylint: disable=E0401
+# pylint: disable=C0116
+# pylint: disable=W0613
 import os
 import json
 import boto3
