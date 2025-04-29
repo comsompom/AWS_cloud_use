@@ -8,7 +8,7 @@ def handler(event, context):
     """
     S3_BUCKET_NAME = "lambda-dynamo-s3"
     bucket_name = 'lambda-dynamo-s3' 
-    file_name = f'{event['file_name']}.txt' 
+    file_name = f"{event['file_name']}.txt"
     file_content = 'This is the content of the file.' 
     
     s3 = boto3.client('s3') 
