@@ -2,14 +2,14 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { SQSClient, SendMessageCommand, GetQueueAttributesCommand, SendMessageCommandInput } from "@aws-sdk/client-sqs";
 
-const limit_sqs_messages: number = 2;
+export const limit_sqs_messages: number = 2;
 
-const TABLE_NAME = process.env.TABLE_NAME || '';
+export const TABLE_NAME = process.env.TABLE_NAME;
 const client = new DynamoDBClient({});
-const docClient = DynamoDBDocumentClient.from(client);
+export const docClient = DynamoDBDocumentClient.from(client);
 
-const sqsClient = new SQSClient({});
-const queueUrl = process.env.QUEUE_URL;
+export const sqsClient = new SQSClient({});
+export const queueUrl = process.env.QUEUE_URL;
 
 export interface Result {
     statusCodeLambda: number,
