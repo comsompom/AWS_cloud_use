@@ -1,3 +1,6 @@
+# pylint: disable=C0303
+# pylint: disable=C0114
+# pylint: disable=W1510
 import subprocess
 
 
