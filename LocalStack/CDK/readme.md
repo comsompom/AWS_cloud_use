@@ -27,6 +27,7 @@ cdklocal deploy
 # destroy the structure
 ```bash
 cdklocal destroy
+.venv\scripts\deactivate
 ```
 
 All structure are build inside the folder with the python file:
