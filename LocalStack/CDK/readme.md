@@ -8,7 +8,7 @@ mkdir stack
 cd stack
 mkdir aws
 cd aws
-cdklocal init init app --language python
+cdklocal init app --language python
 source .venv/bin/activate
 ```
 
