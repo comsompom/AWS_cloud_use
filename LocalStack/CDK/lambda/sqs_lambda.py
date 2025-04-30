@@ -3,6 +3,7 @@
 # pylint: disable=E0401
 # pylint: disable=C0116
 # pylint: disable=W0613
+# pylint: disable=R0801
 import os
 import json
 import boto3
@@ -23,7 +24,6 @@ def handler(event, context):
         file_name = f"{user_id}_{user_img_file_name}"
 
         table = dynamodb.Table(TABLE_NAME)
-        # put item in table
         response = table.put_item(
             Item={
                 'id': str(user_id),
