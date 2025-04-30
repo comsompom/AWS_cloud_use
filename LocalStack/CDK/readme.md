@@ -9,6 +9,7 @@ cd stack
 mkdir aws
 cd aws
 cdklocal init init app --language python
+source .venv/bin/activate
 ```
 
 ### bootstrap localstack environment
