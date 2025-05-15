@@ -10,3 +10,6 @@ checking of your code (lambda).
 https://app.localstack.cloud/inst/default/resources/lambda/functions
 
 repo: https://github.com/localstack/localstack
+
+the setup documentation: 
+https://docs.localstack.cloud/user-guide/integrations/aws-cdk/
